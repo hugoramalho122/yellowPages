@@ -1,9 +1,9 @@
-from flask import Flask, flash, render_template, url_for, redirect, session,request
-from wtforms import StringField, Form, TextAreaField, PasswordField, validators
+from flask import Flask, flash, render_template, url_for, redirect, request
+from wtforms import StringField, Form, PasswordField, validators
 from passlib.hash import sha256_crypt
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager,UserMixin,login_user,login_required,logout_user,current_user
-from pprint import pprint
+
 
 
 app = Flask(__name__)
@@ -32,7 +32,7 @@ class Users(UserMixin, db.Model):
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(80))
 
-class Business(UserMixin, db.Model):
+class Business(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(50))
     telefone = db.Column(db.String(9), unique=True)
@@ -92,9 +92,6 @@ def tmp(page, search, select):
 
     }
 
-@app.route('/admin', methods=['GET'])
-def admin():
-    return render_template('index.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -178,16 +175,6 @@ def simgleItem():
 
 
 
-
-
-
-
-
-
-
-
-
-
 @app.route('/logout')
 @login_required
 def logout():
@@ -204,6 +191,7 @@ def delete():
     db.session.commit()
 
     return redirect(url_for('dashboard'))
+
 
 
 @app.route('/edit')
