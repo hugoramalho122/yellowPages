@@ -1,0 +1,43 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <br>
+    <br>
+    <div class="row">
+        <div class="col s12 m5">
+            <div class="card">
+                <div class="card-action">
+                    <a>{{business.nome}}</a>
+                </div>
+                <div class="card-image center-align single-card-image">
+                    <img src="https://vignette.wikia.nocookie.net/olympians/images/2/26/Smile.png/revision/latest?cb=20110611224157">
+
+
+                </div>
+                <div class="card-content">
+                        <p>
+                        <b>Rua:</b>{{business.morada}}<br>
+                        <b>Codigo Postal:</b>{{business.cod}}<br>
+                        <b>Freguesia:</b>{{business.freguesia}}
+                        </p>
+                </div>
+                <div class="card-action">
+                    <a href="tel:{{business.telefone}}"><i class="material-icons">phone</i></a>
+                </div>
+            </div>
+        </div>
+        <div id='map' style='width:400px; height: 300px;'></div>
+        <script>
+
+            mapboxgl.accessToken = 'pk.eyJ1IjoiaHVnb3JhbWFsaG8iLCJhIjoiY2pwMDh3YW13MnQ0YzN3bzlmaG40ZG9pNiJ9.evzDJ4Zo5K5gkp78jRqsAQ';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v10'
+            });
+        </script>
+    </div>
+</div>
+
+{% endblock %}

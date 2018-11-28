@@ -1,0 +1,101 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col s12">
+            <h5>Insira uma nova empresa</h5>
+        </div>
+        {% from "includes/formhelpers.html" import render_field %}
+        <form id='1' action="" method="POST">
+            <div class="input-field col s12 m5">
+                {{render_field(form.nome, class_="input-field ")}}
+            </div>
+
+            <div class="col s12 m2"></div>
+            <div class="input-field  col s12 m5">
+                {{render_field(form.telefone, class_="input-field ")}}
+            </div>
+
+            <div class="input-field col s12">
+                {{render_field(form.morada, class_="input-field ")}}
+            </div>
+
+            <div class="input-field col s12 m5 ">
+                {{render_field(form.cod, class_="input-field ")}}
+            </div>
+
+            <div class="col s2"></div>
+            <div class="input-field  col s12 m5">
+                {{render_field(form.freguesia, class_="input-field ")}}
+            </div>
+            <div class="input-field  col s12">
+                <button type="submit" class="btn input-field">Criar</button>
+                <button type="reset" class="btn input-field">Reset</button>
+
+            </div>
+
+        </form>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <table class="responsive-table">
+            <thead>
+            <tr>
+
+                <th>Nome da empressa</th>
+                <th>Morada</th>
+                <th>Codigo Postal</th>
+                <th>Freguesia</th>
+                <th>Telefone</th>
+                <th>Apagar</th>
+                <th>Editar</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for b in business.items %}
+                <tr>
+                    <input type="hidden" class="edit" value="{{b.id}}">
+                    <td contenteditable='true'>{{b.nome}}</td>
+                    <td contenteditable='true'>{{b.morada}}</td>
+                    <td contenteditable='true'>{{b.cod}}</td>
+                    <td contenteditable='true'>{{b.freguesia}}</td>
+                    <td class="numberedit" contenteditable='true'>{{b.telefone}}</td>
+                    <td style="text-align:center"><a href="delete?delete={{b.id}}"><em class="material-icons">delete</em></a></td>
+                    <td><a><em  class="material-icons edit">edit</em></a></td>
+
+                </tr>
+            {% endfor %}
+
+
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    <div class="row center-align">
+        <ul class="pagination">
+
+            {% if prev_url == 'invalid' %}
+                <li class="disabled"><a href=""><em class="material-icons">chevron_left</em></a></li>
+            {% else %}
+                <li class="waves-effect"><a href="{{prev_url}}"><em class="material-icons">chevron_left</em></a></li>
+            {% endif%}
+
+            {% for page in business.iter_pages() %}
+                <li class="waves-effect"><a href="dashboard?page={{page}}">{{page}}</a></li>
+            {% endfor %}
+
+            {% if next_url == 'invalid' %}
+                <li class="disabled"><a href=""><em class="material-icons">chevron_right</em></a></li>
+            {% else %}
+                <li class="waves-effect"><a href="{{next_url}}"><em class="material-icons">chevron_right</em></a></li>
+            {% endif%}
+        </ul>
+    </div>
+
+
+</div>
+
+{% endblock %}

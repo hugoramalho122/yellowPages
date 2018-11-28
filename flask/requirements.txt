@@ -1,0 +1,8 @@
+requests
+Flask
+uwsgi
+flask_wtf
+passlib
+flask-mysqldb
+flask-login
+flask_sqlalchemy

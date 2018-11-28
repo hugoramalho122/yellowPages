@@ -1,0 +1,6 @@
+projectKey=yellowpages
+serverUrl=http://athena.ufp.pt:443
+serverVersion=7.1.0.11001
+dashboardUrl=http://athena.ufp.pt:443/dashboard/index/yellowpages
+ceTaskId=AWaImPwd6sL7U6aRMITk
+ceTaskUrl=http://athena.ufp.pt:443/api/ce/task?id=AWaImPwd6sL7U6aRMITk

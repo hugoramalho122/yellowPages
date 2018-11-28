@@ -1,0 +1,97 @@
+/* custom styles */
+
+
+html, body, .my-wrapper {
+    height: 100%;
+}
+
+nav{
+ background-color: #ffdf04
+}
+
+#nav-mobile{
+  margin-right: 15px;
+}
+
+
+
+.nav-links > a{
+  color: #0D47A1;
+  font-weight: bold;
+  font-size: 18px;
+
+}
+
+
+
+.nav-image {
+  height: 50px;
+  margin-top: 6px;
+}
+
+.btn{
+    background-color: #ffdf04 ;
+    color: #0D47A1 ;
+    font-weight: bold;
+}
+
+h1{
+    color: #0D47A1;
+    font-weight: bold;
+}
+
+h6{
+     color: #0D47A1 ;
+    font-weight: bold;
+}
+
+
+/* label underline focus color on PasswordFields */
+.input-field input[type=password]:focus {
+    border-bottom: 1px solid #0d47a1 !important;
+    box-shadow: 0 1px 0 0 #0d47a1 !important;
+}
+
+
+/* label underline focus color on TextFields */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #0d47a1 !important;
+    box-shadow: 0 1px 0 0 #0d47a1 !important;
+}
+
+/* label color */
+.input-field label {
+    color: #0d47a1;
+}
+
+
+h5{
+    color: #0D47A1;
+    font-weight: bold;
+}
+
+.pagination li.active {
+    background-color: #ffdf04;
+    color: #0D47A1;
+}
+
+
+.pagination li.active a {
+    color: #0D47A1;
+    font-weight: bold;
+}
+
+.pagination li a{
+    color: #0D47A1;
+}
+
+
+td, th{
+    text-align:center;
+}
+
+
+.single-card-image > img {
+    width: fit-content;
+}
+

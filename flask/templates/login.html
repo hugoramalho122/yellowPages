@@ -1,0 +1,36 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="offset-s2 col s8 offset-s2">
+            <h1>Login</h1>
+        </div>
+
+        <div class="row offset-s2 col s8 offset-s2">
+            {% if error %}
+                <div style="color: #0D47A1">{{error}}</div>
+            {% endif %}
+        </div>
+
+        <form action="" method="POST">
+            <div class="input-field offset-s2 col s8 offset-s2">
+                <label>Username</label>
+                <input type="text" name="username" class="input-field" value={{request.form.username}}>
+            </div>
+            <div class="input-field offset-s2 col s8 offset-s2">
+                <label>Password</label>
+                <input type="password" name="password" class="input-field" value={{request.form.password}}>
+            </div>
+            <div class="row">
+                <div class="offset-s2 col s8 offset-s2">
+                <button type="submit" class="btn col-s6">Submit</button>
+
+            </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+{% endblock %}
